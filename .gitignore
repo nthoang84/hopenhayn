@@ -1,0 +1,9 @@
+# Ignore workspace files
+hopenhayn.code-workspace
+
+# Ignore MATLAB backup and cache files
+*.asv
+*.m~ 
+*.mat
+*.fig
+.DS_Store
