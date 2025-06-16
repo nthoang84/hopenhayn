@@ -1,5 +1,6 @@
 function [grid, transition] = tauchen(gridSize, rho, sigma, mu, m)
     % Discretize a continuous AR(1) process using Tauchen's method
+    %
     % Inputs:
     %   gridSize - number of grid points
     %   rho - persistence parameter of the AR(1) process

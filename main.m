@@ -1,3 +1,8 @@
+clc;
+clear;
+close all;
+addpath(genpath(pwd));
+
 params = set_params();
 
 [gridProd, transitionProd] = tauchen( ...
@@ -8,8 +13,4 @@ params = set_params();
     4.0 ...
 );
 
-disp('Productivity grid:');
-disp(gridProd(1:10));
-
-disp('Productivity transition matrix:');
-disp(transitionProd(1:10, 1:10));
+[v, exitPolicy, optLabor, optProfit] = solve_policy(params, gridProd, transitionProd, 2.0);         
