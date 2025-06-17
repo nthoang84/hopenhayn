@@ -51,13 +51,13 @@ function solve(params, modelName)
     % Save the solution and moments to a text file
     outputFile = fullfile('outputs', [modelName, '.txt']);
     fileStream = fopen(outputFile, 'w');
-        fprintf(fileStream, 'Equilibrium Price: %.2f\n', solution.price);
-        fprintf(fileStream, 'Average Firm Size: %.2f\n', avgFirmSize);
-        fprintf(fileStream, 'Aggregate Output: %.2f\n', aggOutput);
-        fprintf(fileStream, 'Aggregate Profit: %.2f\n', aggProfit);
-        fprintf(fileStream, 'Exit Rate: %.2f\n', exitRate);
-        fprintf(fileStream, 'Exit Productivity Cutoff: %.2f\n', exitProductivityCutoff);
-        fprintf(fileStream, 'Mass of Entrants: %.2f\n', massEntrants);
+    fprintf(fileStream, 'Equilibrium Price: %.2f\n', solution.price);
+    fprintf(fileStream, 'Average Firm Size: %.2f\n', avgFirmSize);
+    fprintf(fileStream, 'Aggregate Output: %.2f\n', aggOutput);
+    fprintf(fileStream, 'Aggregate Profit: %.2f\n', aggProfit);
+    fprintf(fileStream, 'Exit Rate: %.2f\n', exitRate);
+    fprintf(fileStream, 'Exit Productivity Cutoff: %.2f\n', exitProductivityCutoff);
+    fprintf(fileStream, 'Mass of Entrants: %.2f\n', massEntrants);
     fclose(fileStream);
 
     % Plot the stationary distribution of firm sizes and employment
