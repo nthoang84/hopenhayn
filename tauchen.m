@@ -1,17 +1,23 @@
-function [grid, transition] = tauchen(gridSize, rho, sigma, mu, m)
-    % Discretize a continuous AR(1) process using Tauchen's method
-    %
-    % Inputs:
-    %   gridSize - number of grid points
-    %   rho - persistence parameter of the AR(1) process
-    %   sigma - standard deviation of the shock
-    %   mu - mean of the process
-    %   m - number of standard deviations to cover
-    %
-    % Outputs:
-    %   grid - vector of grid points
-    %   transition - transition matrix
+% TAUCHEN Discretizes a continuous AR(1) process using Tauchen's method.
+%
+%   [grid, transition] = tauchen(gridSize, rho, sigma, mu, m)
+%
+%   Inputs:
+%       gridSize - Number of grid points
+%       rho      - Persistence parameter of the AR(1) process
+%       sigma    - Standard deviation of the shock
+%       mu       - Mean of the process
+%       m        - Number of standard deviations to cover
+%
+%   Outputs:
+%       grid       - Vector of grid points (in levels, not logs)
+%       transition - Transition probability matrix
+%
+%   This function constructs a Markov chain approximation to the AR(1)
+%   process using Tauchen's method. The resulting grid is exponentiated
+%   to return levels rather than logs.
 
+function [grid, transition] = tauchen(gridSize, rho, sigma, mu, m)
     % Compute grid points
     gridMin = mu / (1 - rho) - m * sqrt(sigma^2 / (1 - rho^2));
     gridMax = mu / (1 - rho) + m * sqrt(sigma^2 / (1 - rho^2));

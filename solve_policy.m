@@ -1,19 +1,22 @@
-function [v, exitPolicy, optLabor, optProfit] = solve_policy(params, gridProd, transitionProd, price, verbose)
-    % Solves the firm's dynamic programming problem.
-    % 
-    % Inputs:
-    %   params         - Struct containing model parameters
-    %   gridProd       - Productivity grid (vector)
-    %   transitionProd - Productivity transition matrix
-    %   price          - Output price
-    %   verbose        - (Optional) If true, prints convergence info (default: true)
-    %
-    % Outputs:
-    %   v          - Value function
-    %   exitPolicy - Exit policy (1 if exit, 0 otherwise)
-    %   optLabor   - Optimal labor choice for each state
-    %   optProfit  - Optimal profit for each state
+% SOLVE_POLICY Solves the firm's dynamic programming problem.
+%
+%   [v, exitPolicy, optLabor, optProfit] = solve_policy(params, gridProd, transitionProd, price, verbose)
+%
+%   Inputs:
+%       params         - Struct with model parameters
+%       gridProd       - Productivity grid (vector)
+%       transitionProd - Productivity transition matrix
+%       price          - Output price
+%       verbose        - (Optional) Print convergence info (default: true)
+%
+%   Outputs:
+%       v          - Value function
+%       exitPolicy - Exit policy (1 if exit, 0 otherwise)
+%       optLabor   - Optimal labor for each state
+%       optProfit  - Optimal profit for each state
 
+function [v, exitPolicy, optLabor, optProfit] = solve_policy(params, gridProd, transitionProd, price, verbose)
+    % Check input arguments
     if nargin < 5
         verbose = true;
     end

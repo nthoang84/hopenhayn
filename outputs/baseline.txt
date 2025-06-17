@@ -1,0 +1,7 @@
+Equilibrium Price: 2.05
+Average Firm Size: 69.59
+Aggregate Output: 24.43
+Aggregate Profit: 11.38
+Exit Rate: 0.10
+Exit Productivity Cutoff: 2.43
+Mass of Entrants: 0.04

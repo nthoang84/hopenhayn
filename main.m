@@ -1,16 +1,22 @@
+% MAIN Script to run the baseline and counterfactual model solutions.
+%
+%   This script sets parameters and solves the model for different
+%   parameterizations, saving results and plots for each case.
+
 clc;
 clear;
 close all;
-addpath(genpath(pwd));
 
+% Run the baseline model
 params = set_params();
+solve(params, 'baseline');
 
-[gridProd, transitionProd] = tauchen( ...
-    params.numGridPointsProd, ...
-    params.persistenceProd, ...
-    params.stdDevProd, ...
-    params.meanProd * (1 - params.persistenceProd), ...
-    4.0 ...
-);
+% Run counterfactuals with higher entry cost
+params = set_params();
+params.entryCost = 60;
+solve(params, 'higher_entry_cost');
 
-[v, exitPolicy, optLabor, optProfit] = solve_policy(params, gridProd, transitionProd, 2.0);         
+% Run counterfactuals with higher fixed cost
+params = set_params();
+params.fixedCost = 30;
+solve(params, 'higher_fixed_cost');
