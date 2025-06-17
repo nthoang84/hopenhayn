@@ -69,7 +69,7 @@ function solve(params, modelName)
     xlabel('Size');
     ylabel('Density');
     title('Stationary Distribution');
-    print(fullfile('outputs', modelName), '-dsvg');
+    print(fullfile('outputs', modelName), '-dpdf');
 
     % Finish solving the model
     disp(['Model ', modelName, ' solved successfully.']);
